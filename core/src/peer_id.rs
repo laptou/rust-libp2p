@@ -24,6 +24,9 @@ use rand::Rng;
 use std::{convert::TryFrom, fmt, str::FromStr};
 use thiserror::Error;
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
 /// Public keys with byte-lengths smaller than `MAX_INLINE_KEY_LENGTH` will be
 /// automatically used as the peer id using an identity multihash.
 const MAX_INLINE_KEY_LENGTH: usize = 42;
@@ -31,6 +34,7 @@ const MAX_INLINE_KEY_LENGTH: usize = 42;
 /// Identifier of a peer of the network.
 ///
 /// The data is a multihash of the public key of the peer.
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Copy, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct PeerId {
     multihash: Multihash,
