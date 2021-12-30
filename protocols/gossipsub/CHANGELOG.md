@@ -13,6 +13,8 @@
   
 - Fix `GossipsubConfigBuilder::build()` requiring `&self` to live for `'static` (see [PR 2409])
 
+- Fix `GossipsubConfigBuilder::build()` requiring `&self` to live for `'static` (see [PR 2409])
+
 [PR 2346]: https://github.com/libp2p/rust-libp2p/pull/2346
 [PR 2339]: https://github.com/libp2p/rust-libp2p/pull/2339
 [PR 2327]: https://github.com/libp2p/rust-libp2p/pull/2327
